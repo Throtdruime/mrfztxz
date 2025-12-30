@@ -10,8 +10,8 @@ import "./js/console/main.js";
 
 document.getElementById("lianXi").onclick = () => {
   alert(
-      "- 作者 QQ 3412725994  -\n" +
-      "- 交流群 懒得建群  -\n"
+      "- 作者 QQ 3412725994 -\n" +
+      "- 交流群 1056969651 -\n"
   );
 }
 document.getElementById("github").onclick = () => {
