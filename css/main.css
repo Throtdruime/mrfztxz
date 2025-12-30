@@ -62,7 +62,7 @@ canvas {
 
 /* --- 右侧编辑区 (桌面) --- */
 .right {
-    width: 980px;
+    width: 720px;
     min-width: 350px;
     background-color: var(--panel-bg);
     padding: 30px;
