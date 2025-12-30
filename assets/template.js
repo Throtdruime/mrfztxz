@@ -158,7 +158,7 @@ export const template = {
               "type": "text",
               "visible": true,
               "opacity": 100,
-              "text": "CASTER/RHODES ISLAND",
+              "text": "SPECIALIST/RHODES ISLAND",
               "layout": {
                 "left": 116.5,
                 "top": 1130.3
@@ -881,7 +881,7 @@ export const back = {
           "type": "text",
           "visible": true,
           "opacity": 100,
-          "text": "CASTER/RHODES ISLAND",
+          "text": "SPECIALIST/RHODES ISLAND",
           "layout": {
             "left": 20,
             "top": 837.5

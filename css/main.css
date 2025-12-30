@@ -1,3 +1,5 @@
+/* 不会写css 直接ai */
+
 /* --- 全局变量与重置 --- */
 :root {
     --bg-color: #121212;
@@ -60,7 +62,7 @@ canvas {
 
 /* --- 右侧编辑区 (桌面) --- */
 .right {
-    width: 480px;
+    width: 980px;
     min-width: 350px;
     background-color: var(--panel-bg);
     padding: 30px;
