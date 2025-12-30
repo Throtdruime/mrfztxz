@@ -19,6 +19,9 @@
     <span style="font-size:0.6em; opacity:0.5; font-weight:normal;">建议使用PC浏览器体验完整功能</span>
     <div class="container2">
       <div class="">
+        <h3>修改后或出现显示BUG时请刷新</h3>
+        <button id="shuaXin">⟳ 刷新</button>
+        <button id="chongZhi">⚠ 重置</button>
         <h3>基本信息</h3>
         <label for="left_title">主标题</label>
         <input id="left_title" type="text" placeholder="例如：罗德岛">
@@ -55,11 +58,9 @@
           </div>
         </label>
         <input id="imageUpload" type="file" accept="image/*" style="display:none;"
-               onchange="this.previousElementSibling.querySelector('div').innerText = '✅ 已选择: ' + this.files[0].name">
+               onchange="this.previousElementSibling.querySelector('div').innerText = '已选择: ' + this.files[0].name">
 
-        <h3>操作</h3>
-        <button id="shuaXin">⟳ 刷新预览</button>
-        <button id="chongZhi">⚠ 重置</button>
+
 
 
       </div>
