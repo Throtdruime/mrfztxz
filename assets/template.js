@@ -17,9 +17,10 @@ export const template = {
         {
           "id": "cutting_line",
           "type": "image",
+          "role": "cutline",
           "visible": true,
           "opacity": 100,
-          "src": "assets/layers/front/cutting line.png",
+          "src": "assets/layers/front/cutline.svg",
           "width": 590,
           "height": 1180,
           "layout": {
@@ -958,5 +959,3 @@ export const back = {
     }
   ]
 };
-
-console.log("- template.js OK -", template, back);

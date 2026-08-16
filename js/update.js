@@ -1,22 +1,25 @@
-// js / update.js
-import {readTemplate} from "./parser/main.js";
-import {back, template} from "../assets/template.js";
-document.getElementById("shuaXin").onclick = () => {
-  readTemplate(template, "ctx01");
-  readTemplate(back, "ctx02");
-}
-document.getElementById("chongZhi").onclick = () => {
-  location.reload();
-  setTimeout(() => {
-    readTemplate(back, "ctx02");
-    console.log("1")
-  }, 200);
-}
+import {syncControls} from "./console/main.js";
+import {invalidateImageCache} from "./parser/main.js";
+import {forceRender, scheduleRender} from "./render.js";
+import {resetProjectState, runtimeImageMap} from "./state.js";
 
-window.onload = () => {
-  setTimeout(() => {
-    readTemplate(template, "ctx01");
-    readTemplate(back, "ctx02");
-    console.log("1")
-  }, 200);
-};
+const refreshButton = document.getElementById("shuaXin");
+const resetButton = document.getElementById("chongZhi");
+
+refreshButton.addEventListener("click", async () => {
+  refreshButton.disabled = true;
+  try {
+    await forceRender();
+  } finally {
+    refreshButton.disabled = false;
+  }
+});
+
+resetButton.addEventListener("click", () => {
+  if (!window.confirm("确定恢复默认内容、颜色和人物位置吗？")) return;
+  const runtimeUrls = Object.values(runtimeImageMap);
+  resetProjectState();
+  for (const url of runtimeUrls) invalidateImageCache(url);
+  syncControls();
+  scheduleRender();
+});

@@ -1,21 +1,15 @@
-// main.js
-/**
- * 写着玩的
- */
-import "./assets/template.js";
-import "./js/export.js";
-import "./js/update.js";
-import "./js/parser/main.js";
 import "./js/console/main.js";
+import "./js/editor.js";
+import "./js/export.js";
+import {scheduleRender} from "./js/render.js";
+import "./js/update.js";
 
-document.getElementById("lianXi").onclick = () => {
-  alert(
-      "- 作者 QQ 3412735994 -\n" +
-      "- 交流群 1056969651 -\n"
-  );
-}
-document.getElementById("github").onclick = () => {
-  window.open("https://github.com/epYuriX/mrfztxz", "_blank");
-}
-console.log("- main.js OK -");
+document.getElementById("lianXi").addEventListener("click", () => {
+  window.alert("- 作者 QQ 3412735994 -\n- 交流群 1056969651 -");
+});
 
+document.getElementById("github").addEventListener("click", () => {
+  window.open("https://github.com/epYuriX/mrfztxz", "_blank", "noopener,noreferrer");
+});
+
+scheduleRender();
