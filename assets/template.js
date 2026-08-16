@@ -55,29 +55,6 @@ export const template = {
                 "hScale": 127
               }
             },
-            // {
-            //   "id": "name2",
-            //   "type": "text",
-            //   "visible": true,
-            //   "opacity": 100,
-            //   "text": "name2",
-            //   "layout": {
-            //     "top": 716.8,
-            //     "follow": {
-            //       "target": "name1",
-            //       "xAlign": "right",
-            //       "offsetX": 8.7
-            //     }
-            //   },
-            //   "font": {
-            //     "family": "Bebas Neue",
-            //     "style": "Regular",
-            //     "size": 10,
-            //     "color": "#ffffff",
-            //     "tracking": 0,
-            //     "hScale": 100
-            //   }
-            // },
             {
               "id": "name1",
               "type": "text",

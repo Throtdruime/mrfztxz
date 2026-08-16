@@ -1,7 +1,3 @@
-/**
- * Convert a browser client coordinate into the canvas backing-store space.
- * This remains correct when CSS scales the canvas for a responsive preview.
- */
 export function clientPointToCanvas(canvas, clientX, clientY) {
   if (!canvas || typeof canvas.getBoundingClientRect !== "function") {
     throw new TypeError("canvas must provide getBoundingClientRect()");
@@ -23,10 +19,6 @@ export function clientPointToCanvas(canvas, clientX, clientY) {
   };
 }
 
-/**
- * Test whether a point is inside a rendered axis-aligned rectangle.
- * Edges count as hits. Negative dimensions are accepted and normalised.
- */
 export function hitTest(point, renderInfo) {
   if (!point || !renderInfo) return false;
 

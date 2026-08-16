@@ -27,8 +27,6 @@ function deepClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
-// Capture pristine project data once. resetProjectState restores these copies
-// instead of re-importing the module or reloading the whole page.
 const initialTemplate = deepClone(template);
 const initialBack = deepClone(back);
 
@@ -41,7 +39,6 @@ function isObject(value) {
   return value !== null && typeof value === "object";
 }
 
-/** Restore an object graph while retaining existing object/array references. */
 function restoreInPlace(target, source) {
   if (Array.isArray(target) && Array.isArray(source)) {
     target.length = source.length;
@@ -86,7 +83,6 @@ function updateImageMeta(metadata, height, layerId) {
   let nextMeta = metadata;
   let targetLayerId = layerId || "tu_pian";
 
-  // A numeric third argument is shorthand for (width, height, layerId).
   if (Number.isFinite(metadata)) {
     nextMeta = {width: metadata, height};
   } else if (isObject(metadata) && typeof metadata.layerId === "string") {
@@ -103,12 +99,6 @@ function updateImageMeta(metadata, height, layerId) {
   }
 }
 
-/**
- * Replace a runtime image and release an obsolete blob URL.
- *
- * `metadata` may be `{width, height, layerId}` or a numeric width followed by
- * height and layer id. The previous URL is returned for cache invalidation.
- */
 export function replaceRuntimeImage(
     originalSrc,
     newSrc,
@@ -132,7 +122,6 @@ export function replaceRuntimeImage(
   return previousUrl;
 }
 
-/** Reset one editable image's transform without replacing its state object. */
 export function resetImageTransform(layerId = "tu_pian") {
   runtimeLayerState[layerId] ||= {};
   restoreInPlace(runtimeLayerState[layerId], {x: null, y: null, scale: 1});
@@ -150,13 +139,6 @@ function scaleLimits(minimum, maximum) {
   return {minScale, maxScale};
 }
 
-/**
- * Scale an image around a point in canvas coordinates.
- *
- * Canonical form:
- *   setImageScaleAround(layerId, point, scale, renderInfo, min?, max?)
- * The layer id may be omitted to target `tu_pian`.
- */
 export function setImageScaleAround(
     layerIdOrPoint,
     pointOrScale,
@@ -200,7 +182,6 @@ export function setImageScaleAround(
   return state;
 }
 
-/** Restore templates and every exported runtime state object in place. */
 export function resetProjectState() {
   const revoked = new Set();
   for (const value of Object.values(runtimeImageMap)) {
